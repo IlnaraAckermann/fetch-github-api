@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Ubuntu Mono", monospace;
 }
 
 a {
@@ -15,4 +17,26 @@ ul {
 
 img {
     max-width: 100%;
+}
+
+/* Reset básico para botões e inputs do tipo submit */
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Opcional: Reset para remover o estilo de foco padrão (outline) */
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+    outline: none;
 }
