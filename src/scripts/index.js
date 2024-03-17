@@ -24,4 +24,4 @@ async function renderUser(username) {
 	htmlRepositories.innerHTML = screen.renderRepositories(repos);
 }
 
-renderUser("octocat");
+renderUser("github");

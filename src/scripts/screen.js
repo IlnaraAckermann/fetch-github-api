@@ -6,7 +6,7 @@ const screen = {
             <img src="${username.avatar_url}" alt="Avatar do usuário ${
 			username.name
 		}">
-            <div class="userData">
+            <div class="user-data">
                 <h1>${username.name}</h1>
                 <p>${username.bio ?? " "}</p>
             </div>
@@ -17,12 +17,14 @@ const screen = {
 		console.log(`Renderizando Repositórios ${JSON.stringify(repositories)}`);
 		const repos = repositories.map(
 			(repository) => `
-                            <li>        
+                            <li class="repo">        
                                 <a href="${repository.html_url}" target="_blank" rel="noopener noreferrer">${repository.name}</a>
                             </li>        
         `
 		).join("");
-		return `<ul>
+        return `
+                <h3>Repositórios</h3>
+                <ul>
                     ${repos}
                 </ul>`;
 	},
