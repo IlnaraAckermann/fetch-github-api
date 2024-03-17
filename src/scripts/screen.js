@@ -1,6 +1,6 @@
 const screen = {
 	renderProfile(username) {
-		console.log(`Renderizando usuário ${JSON.stringify(username)}`);
+		// console.log(`Renderizando usuário ${JSON.stringify(username)}`);
 		return `
         <div class="info">
             <img src="${username.avatar_url}" alt="Avatar do usuário ${
@@ -14,7 +14,7 @@ const screen = {
         `;
 	},
 	renderRepositories(repositories) {
-		console.log(`Renderizando Repositórios ${JSON.stringify(repositories)}`);
+		// console.log(`Renderizando Repositórios ${JSON.stringify(repositories)}`);
 		const repos = repositories.map(
 			(repository) => `
                             <li class="repo">        
