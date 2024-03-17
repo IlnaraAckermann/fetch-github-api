@@ -32,7 +32,7 @@ header input[type="search"] {
     color: var(--dark-blue-color);
 }
 
-header input[type="submit"] {
+header button[type="submit"] {
     background-color: var(--medium-blue-color);
     padding: .5rem 1rem;
     border-radius: .5rem;
