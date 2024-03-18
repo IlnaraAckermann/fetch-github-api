@@ -49,7 +49,6 @@ async function renderUser(username) {
 	htmlProfile.innerHTML = screen.renderProfile(user);
 	const repos = await getRepos(username);
 	htmlRepositories.innerHTML = "";
-	console.log(repos);
 	if (repos.length > 0) {
 		htmlRepositories.innerHTML = screen.renderRepositories(repos);
 		htmlRepositories.style.display = "flex";
