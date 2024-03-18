@@ -9,48 +9,52 @@ const searchBar = document.getElementById("search-bar");
 btnSearch.addEventListener("click", (e) => {
 	const searchBar = document.getElementById("search-bar");
 	const username = searchBar.value.trim();
-	console.log(username);
-	if (!(username === "" && username === null && username === undefined)) {
-		renderUser(username);
-	}
+	searchUser(username);
 });
 
 searchBar.addEventListener("keyup", (event) => {
-	// console.log("tecla pressionada");
-	// console.log(event);
 	const username = event.target.value;
 	const key = event.key;
 	const isKeyEnterPressed = key === "Enter";
-	if (isKeyEnterPressed) renderUser(username);
+	if (isKeyEnterPressed) searchUser(username);
 });
 
 async function getUser(username) {
-	// console.log(`Função getUser com usuário: ${username}`);
 	const response = await fetch(`${baseUrl}${username}`);
 	const data = await response.json();
 	return data;
 }
 async function getRepos(username) {
-	// console.log(`Função getRepos com usuário: ${username}`);
 	const response = await fetch(`${baseUrl}${username}/repos`);
 	const data = await response.json();
 	return data;
 }
 
 async function renderUser(username) {
-	// console.log(`Função renderUser com usuário: ${username}`);
 	const user = await getUser(username);
 	if (user.message === "Not Found") {
-		htmlProfile.innerHTML = "";
+		const notfound = {
+			name: "User not found",
+			bio: "",
+			avatar_url: "./src/img/notfound.jpg",
+		};
+		htmlUserDetails.classList.add("populated");
+		htmlProfile.innerHTML = screen.renderProfile(notfound);
 		htmlRepositories.innerHTML = "";
+		htmlRepositories.style.display = "none";
 		return;
 	}
-	const repos = await getRepos(username);
 	htmlUserDetails.classList.add("populated");
 	htmlProfile.innerHTML = "";
-	htmlRepositories.innerHTML = "";
 	htmlProfile.innerHTML = screen.renderProfile(user);
-	htmlRepositories.innerHTML = screen.renderRepositories(repos);
+	console.log(repos);
+	if (repos.lemght > 0) {
+		htmlRepositories.innerHTML = "";
+		htmlRepositories.innerHTML = screen.renderRepositories(repos);
+		htmlRepositories.style.display = "flex";
+	} else {
+		htmlRepositories.style.display = "none";
+	}
 }
 
 async function searchUser(username) {
