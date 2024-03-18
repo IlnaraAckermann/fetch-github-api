@@ -36,9 +36,14 @@ header button[type="submit"] {
     background-color: var(--medium-blue-color);
     padding: .5rem 1rem;
     border-radius: .5rem;
+    transition: all .5s;
 }
 
-#user-detail.populated{
+header button[type="submit"]:hover {
+    background-color: var(--light-blue-color);
+}
+
+#user-detail.populated {
     gap: 1rem;
     background-color: var(--dark-gray-color);
     border: 1px solid var(--dark-blue-color);
@@ -66,6 +71,7 @@ header button[type="submit"] {
 
 .info img {
     border-radius: 10%;
+    padding: .5rem;
     border: 3px solid var(--medium-blue-color);
     width: 300px;
 }
@@ -98,4 +104,24 @@ header button[type="submit"] {
     background-color: var(--medium-blue-color);
     border: 1px solid var(--light-blue-color);
     cursor: pointer;
+}
+
+.others {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.follow,
+.followers {
+    padding: .3rem .5rem;
+    border-radius: .3rem;
+}
+
+.follow {
+    background: var(--color-follow);
+}
+
+.followers {
+    background: var(--color-followers);
 }
