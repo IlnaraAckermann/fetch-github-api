@@ -47,9 +47,10 @@ async function renderUser(username) {
 	htmlUserDetails.classList.add("populated");
 	htmlProfile.innerHTML = "";
 	htmlProfile.innerHTML = screen.renderProfile(user);
+	const repos = await getRepos(username);
+	htmlRepositories.innerHTML = "";
 	console.log(repos);
-	if (repos.lemght > 0) {
-		htmlRepositories.innerHTML = "";
+	if (repos.length > 0) {
 		htmlRepositories.innerHTML = screen.renderRepositories(repos);
 		htmlRepositories.style.display = "flex";
 	} else {
